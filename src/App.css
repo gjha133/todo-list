@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: 'Karla';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: 200px;
+  width: 100%;
+  background-color: #E9EEF6;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.header-heading {
+  font-weight: 700;
+}
+
+.card-wrapper {
+  width: 250px;
+  height: 250px;
+  box-shadow: 5px 7.5px 15px #A5A5A5;
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+}
+
+.card-top {
+  width: 100%;
+  height: 2%;
+}
+
+.task-holder {
+  width: 100%;
+  height: 98%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.task-holder p {
+  font-size: .8rem;
+}
+
+.card-header {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* max-width: 80px; */
+  height: 30px;
+  padding: 1px 1px !important;
+  text-align: left;
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: no-wrap;
+}
+
+.task-container {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 30px 60px;
+  grid-gap: 20px;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 300px)); */
+  /* gap: 1rem; */
+  /* background-color: #F6F7F8; */
+  /* margin-bottom: 20px; */
+}
+
+.card-footer {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.card-footer-icons {
+  cursor: pointer;
+  margin: 3px;
+}
+
+/*ScrollBar */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Footer  */
+.footer {
+  /* height: 50px; */
+  padding: 10px;
+  /* margin-top: auto; */
+  /* background-color: #e9eef6; */
+  height: 60px;
+  width: 100%;
+  position: static;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* .footerdark {
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 10px;
+  margin-top: auto;
+} */
+
+.icon {
+  margin-right: 5px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.info {
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name:hover {
+  color: rgb(66, 111, 182);
+  background-color: #8cd5ff40;
+  transition: all 150ms ease-in;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.link {
+  text-decoration: none;
+  color: #163d72;
+
 }
