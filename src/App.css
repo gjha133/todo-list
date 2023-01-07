@@ -85,6 +85,17 @@ code {
   /* gap: 1rem; */
   /* background-color: #F6F7F8; */
   /* margin-bottom: 20px; */
+  
+}
+
+@media (max-width: 400px), (max-width: 991.98px) {
+  /* … */
+  .task-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 75px;
+  }
 }
 
 .card-footer {
