@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
@@ -14,6 +15,14 @@ const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
 
     const handleSave = (e) => {
         e.preventDefault()
+        if(taskName === '') {
+            toast.error("Please enter name")
+            return
+        }
+        if(description === '') {
+            toast.error("Please enter description")
+            return
+        }
         let taskObj = {
             Name : taskName,
             Description: description
@@ -22,7 +31,9 @@ const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
     }
 
     return (
-        <Modal isOpen={modal} toggle={toggleModal}>
+        <>
+            <div><Toaster/></div>
+            <Modal isOpen={modal} toggle={toggleModal}>
             <ModalHeader toggle={toggleModal}>Create Task</ModalHeader>
             <ModalBody>            
                 <div className = "form-group">
@@ -30,10 +41,12 @@ const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
                     <input 
                         type="text" 
                         className = "form-control" 
+                        placeholder='Enter task name'
                         value = {taskName} 
                         onChange = {handleChange} 
                         name = "taskName"
-                        id='id'
+                        maxLength={25}
+                        id={id}
                     />
                 </div>
                 <div className = "form-group">
@@ -41,11 +54,15 @@ const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
                     <textarea 
                         rows = "5" 
                         className = "form-control" 
+                        placeholder={`Enter description ${'\n\n\n\n'}Max 200 characters`}
                         value = {description} 
                         onChange = {handleChange} 
                         name = "description"
-                        id='id'
-                    ></textarea>
+                        id={id}
+                        style={{resize: 'none'}}
+                        maxLength={200}
+                    >
+                    </textarea>
                 </div>
             </ModalBody>
             <ModalFooter>
@@ -57,6 +74,7 @@ const CreateTaskPopup = ({modal, toggleModal, save, id}) => {
                 onClick={toggleModal}>Cancel</Button>
             </ModalFooter>
         </Modal>
+        </>
     );
 };
 

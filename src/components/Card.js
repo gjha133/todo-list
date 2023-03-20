@@ -19,7 +19,6 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     ]
 
     let size = colors.length
-    // let randIndex = Math.ceil(index * Math.random()) % size
     let randIndex = index % size
     let iconColor = { 
         "color": colors[randIndex % size].primaryColor 

@@ -18,6 +18,7 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     useEffect(() => {
         setTaskName(taskObj.Name)
         setDescription(taskObj.Description)
+        // eslint-disable-next-line
     }, [])
 
     const handleUpdate = (e) => {
@@ -28,8 +29,6 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
         updateTask(tempObj)
     }
 
-    // const formPreventDefault = (e) => e.preventDefault();
-
     return (
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>Update Task</ModalHeader>
@@ -37,11 +36,24 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
             
                     <div className = "form-group">
                         <label>Task Name</label>
-                        <input type="text" className = "form-control" value = {taskName} onChange = {handleChange} name = "taskName"/>
+                        <input type="text" 
+                            className = "form-control" 
+                            value = {taskName} 
+                            onChange = {handleChange} 
+                            name = "taskName"
+                            maxLength={25}
+                        />
                     </div>
                     <div className = "form-group">
                         <label>Description</label>
-                        <textarea rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "description"></textarea>
+                        <textarea rows = "5" 
+                            className = "form-control" 
+                            value = {description} 
+                            onChange = {handleChange} 
+                            name = "description"
+                            style={{resize: 'none'}}
+                            maxLength={200}
+                        ></textarea>
                     </div>
                 
             </ModalBody>

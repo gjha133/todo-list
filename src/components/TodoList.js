@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CreateTask from '../modals/CreateTask'
 import Card from './Card';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 
 const TodoList = () => {
     const [modal, setModal] = useState(false);
@@ -44,8 +44,6 @@ const TodoList = () => {
         setModal(false)
     }
 
-    // console.log(taskList)
-
     return (
         <>
             <div className = "header">
@@ -59,7 +57,8 @@ const TodoList = () => {
                 {taskList && taskList.map((obj, index) => (
                     <Card 
                         taskObj = {obj} 
-                        index = {index} 
+                        index = {index}
+                        key={nanoid()} 
                         deleteTask = {deleteTask} 
                         updateListArray = {updateListArray}
                     />))
